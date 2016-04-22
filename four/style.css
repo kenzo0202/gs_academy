@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.head{
+    position: relative;
+    height: 50px;
+    margin-bottom: 30px;
+}
+.left-title{
+    position: absolute;
+    top: 0;
+    float: left;
+}
+
+.right-title{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.owner>p{
+    float: left;
+    padding-top: 34px;
+}
+.owner{
+    display: inline-block;
+}
+
+.sub_title{
+    float:right;
+    font-size: 10px;
+    padding-top: 26px;
+}
+.sub_title p:nth-child(2){
+    color: aquamarine;
+}
+
+#title_img{
+    width: 100px;
+    height:50px;
+}
+
+#reserve_btn{
+    text-align: center;
+    display: inline-block;
+}
+#reserve_btn a{
+    display:block;
+    text-decoration: none;
+    padding: 20px 40px;
+    background-color: aquamarine;
+    color: mintcream;
+}
+nav ul{
+    overflow: hidden;
+}
+nav li{
+    display: inline-block;
+    width: 100px;
+    float: left;
+    margin:0;
+    text-align: center;
+}
+nav li:last-child{
+    float: right;
+}
+nav li a{
+    text-decoration: none;
+    padding: 10px 0;
+    display:block;
+}
+nav li a:hover{
+    background-color: aquamarine;
+}
+.container{
+    background-color: gainsboro;
+    overflow: hidden;
+}
+.main{
+    float: left;
+    width: 70%;
+    margin: 0 10px; 
+}
+.sub{
+    float: right;
+    width: 20%;
+}
+#three_alert li:nth-child(1){
+    color: red;
+}
+#three_alert li:nth-child(2){
+    color:aquamarine;
+}
+#three_alert li:nth-child(3){
+    color:aquamarine;
+}
+#three_alert{
+    margin: 20px;
+}
+
+#three-block{
+    margin-bottom: 20px
+}
+
+#three-block li:nth-child(1){
+    display: inline-block;
+    width: 30%;
+    height: 100px;
+    background-color: aquamarine;
+    text-align: center;
+}
+#three-block li p {
+    padding-top: 20px;
+    color: mintcream;
+}
+#three-block li:nth-child(2){
+    display: inline-block;
+    width: 30%;
+    height: 100px;
+    background-color: navy;
+    text-align: center
+}
+#three-block li:nth-child(3){
+    display: inline-block;
+    width: 30%;
+    height: 100px;
+    background-color: orange;
+    text-align: center
+}
+
+
+
+
+
