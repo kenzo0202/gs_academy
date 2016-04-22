@@ -5,6 +5,11 @@
     <title>管理画面サンプル</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+<!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+-->
+
 </head>
 <body>
   <header>
@@ -28,41 +33,41 @@
           
                     
       </div>
-      <nav>
+      <nav class="clearfix">
           <ul>
-              <li><a href="">トップ</a></li>
-              <li><a href="">予約管理</a></li>
-              <li><a href="">顧客管理</a></li>
-              <li><a href="">問い合わせ管理</a></li>
+              <li><a class="top_nav" href="">トップ</a></li>
+              <li><a class="top_nav" href="">予約管理</a></li>
+              <li><a class="top_nav" href="">顧客管理</a></li>
+              <li><a class="top_nav" href="">問い合わせ管理</a></li>
               <li id="deliver_information">
-                 <a href="">顧客への配信</a>
-                  <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                 <a class="top_nav" href="">顧客への配信</a>
+                  <ul class="sub_nav clearfix">
+                      <li><a href="">a</a></li>
+                      <li><a href="">b</a></li>
+                      <li><a href="">c</a></li>
                   </ul>
               </li>
-              <li id="promotion">
-                 <a href="">プロモーション</a>
-                  <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul>
-              </li>
-              <li>
-                  <a href="">集客状況集計</a>
-              </li>
-              <li id="option">
-                 <a href="">オプション管理</a>
-                  <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+              <li id="deliver_information">
+                 <a href="" class="top_nav">プロモーション</a>
+                  <ul class="sub_nav clearfix">
+                      <li>a</li>
+                      <li>b</li>
+                      <li>c</li>
                   </ul>
               </li>
               <li>
-                  <a href="">基本設計</a>
+                  <a class="top_nav" href="">集客状況集計</a>
+              </li>
+              <li id="deliver_information">
+                 <a class="top_nav" href="">オプション管理</a>
+                  <ul class="sub_nav clearfix">
+                      <li>a</li>
+                      <li>b</li>
+                      <li>c</li>
+                  </ul>
+              </li>
+              <li>
+                  <a class="top_nav" href="">基本設定</a>
               </li>
           </ul>
       </nav>
@@ -77,66 +82,108 @@
         <ul id="three-block">
             <li>
                 <p>本日の予約</p>
-                <p>0件</p>
+                <p class="big_string">0件</p>
             </li>
             <li>
                 <p>本日のキャンセル</p>
-                <p>0件</p>
+                <p class="big_string">0件</p>
             </li>
             <li>
                 <p>お問い合わせ</p>
-                <p>0件</p>
+                <p class="big_string">0件</p>
             </li>
         </ul>
         <div id="main_information">
-           
+           <div class="reservation left_information">
+               <p>本日の予約</p>
+               <table>
+                  <tr>
+                   <td>時間</td>
+                   <td>サービス</td>
+                   <td>顧客名</td>
+                  </tr>    
+               </table>
+           </div>
+           <div class="right_information">
+              <div class="answer">
+               <p>お問い合わせ</p>
+               <table>
+                  <tr>
+                   <td>受付日時</td>
+                   <td>顧客名</td>
+                   <td>タイトル</td>
+                  </tr>    
+               </table>
+           </div>
+           <div class="collect">
+               <p>本日の集客情報</p>
+               <p>
+               <input type="radio" name="sample-col" value="col1" id="col1" checked="checked"><label for="col1">予約受付数集計</label>
+               <input type="radio" name="sample-col" value="col2" id="col2"><label for="col2">新規顧客数集計</label>
+               <input type="radio" name="sample-col" value="col3" id="col3"><label for="col3">顧客総数集計</label>
+               </p>
+               <div id="graph">
+               </div>
+           </div>
+               
+           </div>
         </div>
           
       </div>
       <div class="sub">
-        <p>最終ログイン</p>
-         <div id="reserve"></div>
-         <div id="information"></div>
-         <div id="type"></div>
-          
+        <p>最終ログイン 2016-04-22</p>
+         <div id="reserve" class="side_main_text">
+             <p>予約するボタン</p>
+             <p>ホームページやブログに「予約する」ボタンを設置しよう！</p>
+             <p id="round_btn"><a href="">予約する</a></p>
+             <p><a href="">-->>設定はこちらから&gt;&gt;--</a></p>
+         </div>
+         <div id="information"
+            class="side_main_text">
+             <p>information</p>
+         </div>
+         <div id="type"
+            class="side_main_text">
+             <p>ご利用予約タイプ</p>
+             <p>サービス提供タイプ(スタッフ指名なし)</p>
+         </div>
       </div>
   </div>
   <div class="footer">
       <div id="about">
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>RESERVAについて</p>
+          <p>運営会社</p>
+          <p>採用情報</p>
+          <p>公式ブログ</p>
+          <p>公式Facebook</p>
       </div>
       <div id="support">
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>サポート</p>
+          <p>利用規約</p>
+          <p>プライバシーポリシー</p>
+          <p>料金・機能</p>
+          <p>ヘルプ</p>
       </div>
       <div id="service">
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>関連サービス</p>
+          <p>予約受付電話代行</p>
+          <p>予約システム開発</p>
+          <p>パートナープログラム</p>
       </div>
       <div id="example">
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>活用事例</p>
+          <p>スクール・教室</p>
+          <p>イベント・セミナー</p>
+          <p>貸し会議室</p>
+          <p>採用説明会</p>
+          <p>展示会・見学会</p>
+          <p>観光・旅行ガイド</p>
+          <p>観光・旅行ガイド</p>
+          <p>ネイルサロン</p>
+          <p>ネイルサロン</p>
+          <p>病院・歯科医院</p>
+          <p>弁護士・会計士</p>
+          <p>WordPress</p>
       </div>
   </div> 
 </body>

@@ -32,7 +32,7 @@ body{
     padding-top: 26px;
 }
 .sub_title p:nth-child(2){
-    color: aquamarine;
+    color: #84c6bb;
 }
 
 #title_img{
@@ -48,11 +48,8 @@ body{
     display:block;
     text-decoration: none;
     padding: 20px 40px;
-    background-color: aquamarine;
+    background-color: #84c6bb;
     color: mintcream;
-}
-nav ul{
-    overflow: hidden;
 }
 nav li{
     display: inline-block;
@@ -64,35 +61,44 @@ nav li{
 nav li:last-child{
     float: right;
 }
-nav li a{
+.top_nav{
     text-decoration: none;
     padding: 10px 0;
     display:block;
 }
+#deliver_information:hover .sub_nav {
+    display: block;
+    opacity: 1;
+    height: auto;
+}
 nav li a:hover{
-    background-color: aquamarine;
+    background-color: #84c6bb;
 }
 .container{
-    background-color: gainsboro;
+    background-color: #f7f8f9;
     overflow: hidden;
 }
 .main{
     float: left;
     width: 70%;
-    margin: 0 10px; 
+    margin: 0 0 50px 20px;
 }
 .sub{
     float: right;
-    width: 20%;
+    width: 25%;
+    margin:20px 20px 0 0;
+}
+.sub p:first-child{
+    margin-bottom: 20px;
 }
 #three_alert li:nth-child(1){
     color: red;
 }
 #three_alert li:nth-child(2){
-    color:aquamarine;
+    color:#84c6bb;
 }
 #three_alert li:nth-child(3){
-    color:aquamarine;
+    color:#84c6bb;
 }
 #three_alert{
     margin: 20px;
@@ -104,31 +110,167 @@ nav li a:hover{
 
 #three-block li:nth-child(1){
     display: inline-block;
-    width: 30%;
+    width: 33%;
     height: 100px;
-    background-color: aquamarine;
+    background-color: #84c6bb;
     text-align: center;
 }
 #three-block li p {
     padding-top: 20px;
     color: mintcream;
 }
+.big_string::first-letter {
+	font-size : 2em;
+}
 #three-block li:nth-child(2){
     display: inline-block;
-    width: 30%;
+    width: 33%;
     height: 100px;
-    background-color: navy;
+    background-color: #006699;
     text-align: center
 }
 #three-block li:nth-child(3){
     display: inline-block;
-    width: 30%;
+    width: 33%;
     height: 100px;
-    background-color: orange;
+    background-color: #FCB382;
     text-align: center
 }
 
+.footer{
+    overflow: hidden;
+    background-color: #959d9e; 
+}
+#about,#support,#service,#example{
+    width:25%;
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#about p:first-child{
+    color:white;
+    font-size: 20px;
+    padding-bottom: 20px
+}
+#support p:first-child{
+    color:white;
+    font-size: 20px;
+    padding-bottom: 20px
+}
+#service p:first-child{
+    color:white;
+    font-size: 20px;
+    padding-bottom: 20px
+}
+#example p:first-child{
+    color:white;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.main_information{
+    overflow: hidden;
+}
+.right_information{
+    width:50%;
+    float:right;
+}
+.left_information{
+    width: 50%;
+    float:left;
+}
+
+table{
+    border-bottom: 3px solid gray;
+    border-radius: 5px;
+    width: 90%;
+    background-color: white;
+}
+td{
+    text-align: center;
+    padding:15px 0;
+}
 
 
+#main_information p:first-child{
+    font-size:18px;
+    color:#6FC5B8;
+    padding:10px 0;
+}
 
+#graph{
+    width:90%;
+    height:300px;
+    background-color: white;
+    border-radius: 10px;
+}
+#main_information p:nth-child(2){
+    padding-bottom: 10px;
+}
 
+#deliver_information{
+    position: relative;
+}
+#deliver_information li:nth-child(1){
+    position: absolute;
+    top:36px;
+    left: 0;
+    background-color: white;
+}
+#deliver_information li:nth-child(2){
+    position: absolute;
+    top:52px;
+    left: 0;
+    background-color: white;
+}
+#deliver_information li:nth-child(3){
+    position: absolute;
+    top:68px;
+    left: 0;
+    background-color: white;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.sub_nav{
+    opacity: 0;
+    height: 0;
+    transition: all 1s ease;
+}
+
+.side_main_text p:first-child{
+    color: goldenrod;
+    border-bottom: 3px solid gray;
+    font-size: 18px;
+}
+.side_main_text p:nth-child(2){
+    padding: 10px 0 ;
+}
+.side_main_text {
+    text-align: center;
+    width:100%;
+    height:200px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+#round_btn{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+#round_btn a{
+    display:block;
+    text-decoration: none;
+    padding: 20px 30px;
+    background-color: #84c6bb;
+    color: mintcream;
+    border-radius: 30px;
+}
+
+#type p{
+    font-weight: bold;
+}
