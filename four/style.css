@@ -34,6 +34,9 @@ body{
 .sub_title p:nth-child(2){
     color: #84c6bb;
 }
+#last_login{
+    text-align: right;
+}
 
 #title_img{
     width: 100px;
@@ -181,16 +184,18 @@ nav li a:hover{
 }
 
 table{
-    border-bottom: 3px solid gray;
     border-radius: 5px;
     width: 90%;
     background-color: white;
+    padding-bottom: 20px;
 }
-td{
+th,td{
     text-align: center;
-    padding:15px 0;
+    padding:10px 0;
 }
-
+th{
+    border-bottom: 2px solid gray;
+}
 
 #main_information p:first-child{
     font-size:18px;
@@ -274,3 +279,4 @@ td{
 #type p{
     font-weight: bold;
 }
+
