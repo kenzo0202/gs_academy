@@ -76,6 +76,7 @@ nav li:last-child{
 }
 nav li a:hover{
     background-color: #84c6bb;
+    transition: 1.5s
 }
 .container{
     background-color: #f7f8f9;
@@ -123,7 +124,7 @@ nav li a:hover{
     color: mintcream;
 }
 .big_string::first-letter {
-	font-size : 2em;
+	font-size : 3em;
 }
 #three-block li:nth-child(2){
     display: inline-block;
