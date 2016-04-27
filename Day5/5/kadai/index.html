@@ -60,14 +60,16 @@
             if(localStorage.getItem("q5")){
                 var local_store = localStorage.getItem("q5")
                 var obj_local = JSON.parse(local_store);
-//                console.dir(jlocal);
+                console.log(obj_local);
                 argslist.push(obj_local);
             }
             var text =$("#num").val();
             argslist.push(text);
+            Array.prototype.concat.apply([], argslist);
             // 配列をjson形式に変換          
             var jargslist =JSON.stringify(argslist);
 //            console.log(jargslist);
+            
             localStorage.setItem("q5",jargslist);
             alert("保存したよ");
         });
