@@ -9,32 +9,38 @@ $(document).ready(function(){
 //ここから下にJavascriptを記述
 
 
-  var can = $("#canvas")[0];
-  var ctx = can.getContext("2d");
-  //色指定
-  ctx.strokeStyle = "#000"; //need list of available colors
-  //線の太さ
-  ctx.lineWidth=10;
-  //線の端の形状
-  //http://www.html5.jp/canvas/ref/property/lineCap.html
-  ctx.lineCap='square';
-  //パスの開始
-  ctx.beginPath();
-  //始点
-  //http://www.html5.jp/canvas/ref/method/moveTo.html
-  ctx.moveTo(20, 0);
-  //終点
-  //http://www.html5.jp/canvas/ref/method/lineTo.html
-  ctx.lineTo(100, 0);
-  //描画
-  ctx.stroke();
-  //パスを閉じる
-  ctx.closePath();
-
+    var can = $("#canvas")[0];
+    var ctx = can.getContext("2d");
+    var right = 0;
+    var left = 0;
+    var down = 0;
+    var up= 0;
+      //色指定
+      ctx.strokeStyle = "#000"; //need list of available colors
+      //線の太さ
+      ctx.lineWidth=10;
+      //線の端の形状
+      //http://www.html5.jp/canvas/ref/property/lineCap.html
+      ctx.lineCap='round';
+      //パスの開始
+      ctx.beginPath();
+      //始点
+      //http://www.html5.jp/canvas/ref/method/moveTo.html
+      ctx.moveTo(0, 0);
+      //終点
+      //http://www.html5.jp/canvas/ref/method/lineTo.html
+      ctx.lineTo(right, down);
+    //  ctx.lineTo(30,50);
+    //  ctx.lineTo(0,20);
+      //描画
+      ctx.stroke();
+    //  ctx.fill();
+      //パスを閉じる
+      ctx.closePath();
+});
 
 
   //ここから上にJavascriptを記述
-});
 </script>
 </head>
 <body>

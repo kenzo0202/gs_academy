@@ -11,18 +11,64 @@ $(document).ready(function(){
 
   var theCanvas = $("#canvas")[0];
   var ctx = theCanvas.getContext("2d");
+//  var ctx2 =theCanvas.getContext("2d");
+//  var ctx3 =theCanvas.getContext("2d");
+  var right = 0;
+  var down = 0;
   //パスの開始
-  ctx.beginPath();
-  //四角線を設定
-  ctx.fillStyle="#ff0000";
-  ctx.rect(0,0,60,60);
-  ctx.fill();
-  //描画
-  ctx.strokeStyle="#666666";
-  ctx.stroke();
-
-  //自動的に閉じてくれる
-  ctx.closePath();
+  //beginPathは初期化するという意味
+    ctx.beginPath();
+    //四角線を設定
+    ctx.fillStyle="#ff0000";
+    ctx.fillRect(0,0,100,100);
+//    //描画
+//    ctx.strokeStyle="#666666";
+//    ctx.stroke();
+    //自動的に閉じてくれる
+    ctx.closePath();
+    
+    $('html').keydown(function(e){
+        switch(e.which){
+            case 39: // Key[→]
+            ctx.clearRect(0,0,theCanvas.width,theCanvas.height);
+            right += 10;
+            ctx.fillRect(right,down,100,100);
+            console.log(right);
+            break;
+ 
+            case 37: // Key[←]
+            ctx.clearRect(0,0,theCanvas.width,theCanvas.height);
+            right -= 10;
+            ctx.fillRect(right,down,100,100)
+            
+            break;
+ 
+            case 38: // Key[↑]
+            ctx.clearRect(0,0,theCanvas.width,theCanvas.height);   
+            down -= 10;
+            ctx.fillRect(right,down,100,100)
+            break;
+ 
+            case 40: // Key[↓]
+            ctx.clearRect(0,0,theCanvas.width,theCanvas.height); 
+            down += 10;
+            ctx.fillRect(right,down,100,100)
+            break;
+        }
+    });
+//    ctx2.beginPath();
+//    //四角線を設定
+//    ctx2.fillStyle ="yellow";
+//    ctx2.rect(100,100,100,100);
+//    ctx2.fill();
+//    ctx2.closePath();
+//    
+//    ctx2.beginPath();
+//    //四角線を設定
+//    ctx2.fillStyle ="blue";
+//    ctx2.rect(200,0,100,100);
+//    ctx2.fill();
+//    ctx2.closePath();
 
 
 

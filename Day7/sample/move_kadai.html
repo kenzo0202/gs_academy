@@ -14,6 +14,7 @@ $(document).ready(function(){
   //描画処理
   var i = 1;     //移動座標を保持する変数
   var sec = 100; //0.1秒間隔で描画（setIntervalで使用）
+  var count = 0;
   function f_arc(){
     //パスの開始
     ctx.beginPath();
@@ -24,12 +25,18 @@ $(document).ready(function(){
     //線の太さ
     ctx.lineWidth = 5;
     //円の設定（X中心軸,Y中心軸、半径、円のスタート度、円のエンド度、回転）
-    ctx.arc(i, 100, 50, 0, Math.PI*2, false); // full circle
+    if(count%2 == 0){
+        ctx.arc(i-(count*500), 100, 50, 0, Math.PI*2, false); // full circle
+    }else if(count%2 == 1){
+        ctx.arc(500*(count+1)-i, 100, 50, 0, Math.PI*2, false); // full circle
+    }
+    count = Math.floor(i/500);
+    console.log()
     //描画
     ctx.fill();
     //パスを閉じる
     ctx.closePath();
-    i += 10;
+    i += 100;
   }
 
   //0.1秒間隔で描画
