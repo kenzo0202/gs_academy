@@ -7,55 +7,66 @@
 <script>
 $(document).ready(function(){
 //ここから下にJavascriptを記述
-  var canvas = $("#canvas")[0]; //canvasSize:500x500
-  var ctx = canvas.getContext("2d");
+    var canvas = $("#canvas")[0]; //canvasSize:500x500
+    var ctx = canvas.getContext("2d");
+    var ctx1 = canvas.getContext("2d");
+    
 
 
-  //描画処理
-  var i = 1;     //移動座標を保持する変数
-  var sec = 100; //0.1秒間隔で描画（setIntervalで使用）
-  function f_arc(){
-    var r = Math.floor(Math.random() * 255 + 1);
-    var g = Math.floor(Math.random() * 255 + 1);
-    var b = Math.floor(Math.random() * 255 + 1);
-    var a = Math.floor(Math.random() * 10 + 1);
-    var srx = Math.floor(Math.random() * canvas.width);
-    var sry = Math.floor(Math.random() * canvas.height);
-    var erx = Math.floor(Math.random() * canvas.width);
-    var ery = Math.floor(Math.random() * canvas.height);
+    //描画処理
+    var i = 1;     //移動座標を保持する変数
+    var sec = 100; //0.1秒間隔で描画（setIntervalで使用）
+    function f_arc(){
+        var r = Math.floor(Math.random() * 255 + 1);
+        var g = Math.floor(Math.random() * 255 + 1);
+        var b = Math.floor(Math.random() * 255 + 1);
+        var a = Math.floor(Math.random() * 10 + 1);
+        var srx = Math.floor(Math.random() * canvas.width);
+        var sry = Math.floor(Math.random() * canvas.height);
+        var erx = Math.floor(Math.random() * canvas.width);
+        var ery = Math.floor(Math.random() * canvas.height);
+        var drx = Math.floor(Math.random() * canvas.width);
+        var dry = Math.floor(Math.random() * canvas.height);
 
-    //パスの開始
-    ctx.beginPath();
-    //色指定
-    //ctx.strokeStyle = "rgb("+r+","+g+","+b+")";
-    ctx.strokeStyle = "rgba("+r+","+g+","+b+", 0."+a+")"; //need list of available colors
-    //線の太さ
-    ctx.lineWidth=10;
-    //線の端の形状
-    //http://www.html5.jp/canvas/ref/property/lineCap.html
-    ctx.lineCap='square';
-    //パスの開始
-    ctx.beginPath();
-    //始点
-    //http://www.html5.jp/canvas/ref/method/moveTo.html
-    ctx.moveTo(srx, sry);
-    //終点
-    //http://www.html5.jp/canvas/ref/method/lineTo.html
-    ctx.lineTo(erx, ery);
-    //描画
-    ctx.stroke();
-    //パスを閉じる
-    ctx.closePath();
-    i += 10;
-  }
+        //パスの開始
+        ctx.beginPath();
+        //色指定
+        //ctx.strokeStyle = "rgb("+r+","+g+","+b+")";
+        ctx.strokeStyle = "rgba("+r+","+g+","+b+", 0."+a+")"; //need list of available colors
+        //線の太さ
+        ctx.lineWidth=10;
+        //線の端の形状
+        //http://www.html5.jp/canvas/ref/property/lineCap.html
+        ctx.lineCap='square';
+        //始点
+        //http://www.html5.jp/canvas/ref/method/moveTo.html
+        ctx.moveTo(50, 50);
+        //終点
+        //http://www.html5.jp/canvas/ref/method/lineTo.html
+        ctx.lineTo(erx, ery);
+        //描画
+        ctx.stroke();
+        //パスを閉じる
+        ctx.closePath();
+        
+        ctx1.beginPath();
+        ctx1.strokeStyle = "rgba("+r+","+g+","+b+", 0."+a+")";
+        ctx1.lineWidth = 10;
+        ctx1.moveTo(450,450);
+        ctx1.lineTo(drx,dry);
+        ctx1.stroke();
+        ctx1.closePath();
+        
+        i += 10;
+      }
 
-  //0.1秒間隔で描画
-  setInterval(f_arc, sec);
+      //0.1秒間隔で描画
+      setInterval(f_arc, sec);
 
 
 
-//ここから上にJavascriptを記述
-});
+    //ここから上にJavascriptを記述
+    });
 </script>
 </head>
 <body>

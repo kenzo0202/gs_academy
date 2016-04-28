@@ -13,17 +13,17 @@
 //        localStorage.setItem("memo",value);
 //        alert("saveしました");
 //    }
-//    
+//
 //    var getValue = function(){
 //        var text = localStorage.getItem("memo");
-//        alert(text); 
+//        alert(text);
 //    }
-//    
+//
 //    var removeValue = function(){
 //        var rmv_text = localStorage.removeItem("memo");
 //        alert("削除しました");
 //    }
-//    
+//
 //    var allClear = function(){
 //        localStorage.clear();
 //        alert("全部削除しました");
@@ -33,12 +33,12 @@
 //2.get クリックイベント
 //    $("#get").on("click",getValue);
 // 2+. clear クリックイベント
-//    
+//
 //    $("#clear").on("click",removeValue);
-//    
+//
 //    $("#all_clear").on("click",allClear);
-//    
-//    
+//
+//
 //
 //
 //
@@ -54,34 +54,49 @@
 //})
 //
 //
+//    function inc(){
+//        if(localStorage.getItem("i")){
+//          return parseInt(localStorage.getItem("i"))+1;
+//        }else{
+//          localStorage.setItem("i",1);
+//          return 1;
+//        }
+//    }
+    function inc(){
+        if(localStorage.getItem("i")){
+           var n = parseInt(localStorage.getItem("i"))+1;
+           localStorage.setItem("i",n);
+          return n;
+        }else{
+          localStorage.setItem("i",1);
+          return 1;
+        }
+    }
     $(document).ready(function(){
         $("#add").on("click",function(){
-            var argslist =[];
-            if(localStorage.getItem("q5")){
+            var argslist ={};
+            var i = inc();
+            if(i>1){
                 var local_store = localStorage.getItem("q5")
-                var obj_local = JSON.parse(local_store);
-                console.log(obj_local);
-                argslist.push(obj_local);
+                argslist = JSON.parse(local_store);
+                argslist[i] = $("#num").val();
+            }else{
+              var text =$("#num").val();
+              argslist[i]=text;
             }
-            var text =$("#num").val();
-            argslist.push(text);
-            Array.prototype.concat.apply([], argslist);
-            // 配列をjson形式に変換          
+            // 配列をjson形式に変換
             var jargslist =JSON.stringify(argslist);
-//            console.log(jargslist);
-            
             localStorage.setItem("q5",jargslist);
             alert("保存したよ");
         });
     })
-
 </script>
 </head>
 <body>
 <!--
 ５．ローカルストレージ： （index.htmlを作成、そこに記述！）
 　　１．テキストボックス（ id=“num” ）を作成
-      ボタンも作成（id=“add”） 
+      ボタンも作成（id=“add”）
    ２．ボタンをクリックしたら入力した数値をJavascript(jQueryでも可)で変数に取得
 　　３．ローカルストレージ（key名：q5）で保存出来るようにする。
 　　４．再度入力してボタンを押したら、追加で＋されていく処理を書きましょう！
@@ -89,13 +104,9 @@
 -->
 <input type="textarea" id="num">
 <input type="button" value="追加" id="add">
-<!--
-
   <header>
     <h1>MemoPad</h1>
   </header>
-
-
     <textarea id="text_box"></textarea>
     <ul>
       <li id="save">Save</li>
@@ -103,12 +114,10 @@
       <li id="get">Get</li>
       <li id="all_clear">All Clear</li>
     </ul>
-
-
-  <footer><small>G's</small></footer>
--->
+<!--  <footer><small>G's</small></footer>-->
 
 
 </body>
 
 </html>
+

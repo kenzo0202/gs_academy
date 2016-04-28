@@ -11,6 +11,9 @@
  <!-- 線の色を変更するHTML要素 -->
  <!-- 線の太さを変更するHTML要素 -->
   <button id="clear_btn">クリアー</button>
+  <button id="save_btn">セーブ</button>
+  <input type="color" id="col">
+  <input type="range" id="bold">
 </nav>
 <canvas id="drowarea" width="500" height="500" style="border:1px solid blue;"></canvas>
 </section>
@@ -18,19 +21,62 @@
 
 <script src="js/jquery-2.1.3.min.js"></script>
 <script>
-//初期化
-var canvas_mouse_event = false; //スイッチ [ true=線を引く, false=線は引かない ]  ＊＊＊
-var txy   = 10;               //iPadなどは15＋すると良いかも
-var oldX  = 0;                //１つ前の座標を代入するための変数
-var oldY  = 0;                //１つ前の座標を代入するための変数
-var bold_line = 3;            //ラインの太さをここで指定
-var color = "#fff";           //ラインの色をここで指定
+    
+    window.onload = function(){
+    //初期化
+    var canvas_mouse_event = false; 
+        //スイッチ [ true=線を引く, false=線は引かない ]  ＊＊＊
+        //マウスを動かしている時のみtrueで判定
+    var txy   = 10;               //iPadなどは15＋すると良いかも 実際押そうと思っているところの下を押してしまうからね
+    var oldX  = 0;                //１つ前の座標を代入するための変数
+    var oldY  = 0;                //１つ前の座標を代入するための変数
+    var bold_line = 3;            //ラインの太さをここで指定
+    var color = "#000";
+    console.log(color);//ラインの色をここで指定
 
-//------------------------------------------------
-//var can = $("#drowarea")[0]; //CanvasElement
-//var context = can.getContext("2d"); //描画するための準備！
-//------------------------------------------------
-//上2つのスクリプトを記述します。
+    //------------------------------------------------
+    //var can = $("#drowarea")[0]; //CanvasElement
+    //var context = can.getContext("2d"); //描画するための準備！
+    //------------------------------------------------
+    //上2つのスクリプトを記述します。
+    var can = $("#drowarea")[0];
+    var context = can.getContext("2d");
+    $(can).on("mousedown",function(e){
+        color = $("#col").val();
+        bold_line = $("#bold").val()/10;
+        oldX = e.offsetX;
+        oldY = e.offsetY -txy;
+        canvas_mouse_event = true;
+    });
+    $(can).on("mousemove",function(e){
+        if(canvas_mouse_event ==true){
+            var px = e.offsetX;
+            var py = e.offsetY;
+            context.strokeStyle = color;
+            context.lineWidth = bold_line;
+            context.beginPath();
+            context.lineJoin="round";
+            context.lineCap="round";
+            context.moveTo(oldX,oldY);
+            context.lineTo(px,py);
+            context.stroke();
+            context.closePath();
+            oldX = px;
+            oldY = py;
+        };
+    });
+        
+        
+        $(can).on("mouseup", function(e){
+            canvas_mouse_event = false;
+        });
+        
+        $("#clear_btn").on("click",function(e){
+            context.clearRect(0,0,can.width,can.height);
+        });
+    };
+    
+    
 
 
 //MouseDown：フラグをTrue
