@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>クイズ練習(１個)</title>
+<script>
+$(document).ready(function(){
+  //ここから記述領域［START］
+
+
+
+  //1.問題文を表示
+    $("#quest").text("私の名前はなんでしょう？");
+
+  //2.ラジオボタンをクリックしたらイベント発生！
+    $("input").on("click",function(){
+        var answer = $(this).val();
+        if(answer=="1"){
+            console.log("正解です！")
+        }else if(answer=="2"){
+            console.log("不正解です！")
+        }else if(answer=="3"){
+            console.log("不正解です！")
+        }
+    })
+
+
+
+
+
+  //ここまでが記述領域［END］
+});
+</script>
+</head>
+<body>
+
+<header>
+    <h1>クイズ練習（１個）</h1>
+</header>
+
+<main>
+  <p id="quest"></p>
+  <p>
+    <input type="radio" name="toi" value="1"><span id="n1">ケーキ</span>
+    <input type="radio" name="toi" value="2"><span id="n2">生ハム</span>
+    <input type="radio" name="toi" value="3"><span id="n3">クレープ</span>
+  </p>
+</main>
+
+<footer>フッター</footer>
+</body>
+</html>

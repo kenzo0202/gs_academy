@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>for: 反復処理の確認:for</title>
+<script>
+window.onload=function(){
+//-------------------------------------------------
+//ここから下に記述
+
+
+  //1.変数の入れ物を作成
+  var str="";
+  //2.繰返し処理で、文字列を作成
+    for(var i=0;i<10;i++){
+        str = str+ "ループ" + i + "回目";
+    }
+  //3.変数「str」に入ってる文字列を pタグid="view"に表示
+  document.querySelector("#view").innerHTML = str;
+
+
+//ここから上に記述
+//-------------------------------------------------
+}
+</script>
+</head>
+<body>
+  <h1>for: 反復処理の確認:for</h1>
+  <p id="view">ここにループ処理の結果が表示されます。</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>円</title>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script>
+$(document).ready(function(){
+//ここから下にJavascriptを記述
+
+
+  var canvas = $("#canvas")[0];
+  var ctx = canvas.getContext("2d");
+  //パスの開始
+  ctx.beginPath();
+  //色指定
+  ctx.fillStyle = "#f00";
+  //線の太さ
+  ctx.lineWidth=5;
+  //円の設定（X中心軸,Y中心軸、半径、円のスタート度、円のエンド度、回転）
+  ctx.arc(100, 100, 50, 0, Math.PI*2, false); // full circle
+  //描画
+  ctx.fill();
+  //パスを閉じる
+  ctx.closePath();
+
+//ここから上にJavascriptを記述
+});
+</script>
+</head>
+<body>
+
+
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+
+
+
+</body>
+</html>

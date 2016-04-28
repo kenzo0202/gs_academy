@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>四角</title>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script>
+$(document).ready(function(){
+//ここから下にJavascriptを記述
+
+
+  var theCanvas = $("#canvas")[0];
+  var ctx = theCanvas.getContext("2d");
+  //パスの開始
+  ctx.beginPath();
+  //四角線を設定
+  ctx.fillStyle="#ff0000";
+  ctx.rect(0,0,60,60);
+  ctx.fill();
+  //描画
+  ctx.strokeStyle="#666666";
+  ctx.stroke();
+
+  //自動的に閉じてくれる
+  ctx.closePath();
+
+
+
+//ここから上にJavascriptを記述
+});
+</script>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300"></canvas>
+</body>
+</html>

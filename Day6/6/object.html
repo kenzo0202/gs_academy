@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>オブジェクト/連想配列</title>
+  <script>
+
+    //--------------------------
+    //オブジェクト１
+    var object1 = {
+       a: 'あ',
+       b: 'い',
+       c: 'う'
+    };
+    console.log("[object1]-------------");
+    console.log(object1["a"]);
+    console.log(object1["b"]);
+    console.log(object1["c"]);
+    //--------------------------
+
+
+    //--------------------------
+    //オブジェクト２
+    var object2 = {
+      obj1: {
+        c1: "A",
+        c2: "B",
+        c3: "C"
+      },
+      obj2: {
+        c1: "A",
+        c2: "B",
+        c3: "C"
+      }
+    };
+    console.log("[object2]1-------------");
+    console.log(object2["obj1"]["c1"]);
+    console.log(object2["obj1"]["c2"]);
+    console.log(object2["obj1"]["c3"]);
+    console.log("[object2]2-------------");
+    console.log(object2.obj2.c1);
+    console.log(object2.obj2.c2);
+    console.log(object2.obj2.c3);
+    //--------------------------
+
+  </script>
+</head>
+
+<body>
+  <h1>Objectの確認</h1>
+</body>
+
+</html>
