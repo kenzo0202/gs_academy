@@ -115,7 +115,7 @@ nav li a:hover{
 #three-block li:nth-child(1){
     display: inline-block;
     width: 33%;
-    height: 100px;
+    height: 120px;
     background-color: #84c6bb;
     text-align: center;
 }
@@ -129,14 +129,14 @@ nav li a:hover{
 #three-block li:nth-child(2){
     display: inline-block;
     width: 33%;
-    height: 100px;
+    height: 120px;
     background-color: #006699;
     text-align: center
 }
 #three-block li:nth-child(3){
     display: inline-block;
     width: 33%;
-    height: 100px;
+    height: 120px;
     background-color: #FCB382;
     text-align: center
 }

@@ -1,0 +1,118 @@
+header{
+    width:960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#logo{
+    width: 150px;
+    height: auto;
+}
+#searchform{
+    position: absolute;
+    width: 200px;
+    top:10px;
+    right: 270px;
+    float: left;
+}
+
+#login{
+    position: absolute;
+    padding:10px 15px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    background: #e62017;
+    width: 100px;
+    right: 150px;
+    top: 10px;
+}
+#login a{
+    color: white;
+}
+#assign{
+    position: absolute;
+    padding:10px 15px;
+    border-radius: 5px;
+    border: 1px solid #0099e8;
+    text-align: center;
+    width: 100px;
+    color: #0099e8;
+    right: 10px;
+    top:10px;
+}
+#assign:hover{
+    background: #0099e8;
+    color: white;
+}
+#assign:hover a{
+    color:white;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav ul li{
+    float:left;
+    width: 9%;
+}
+nav ul{
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top:10px;
+    width: 60%;
+}
+nav ul li a{
+    display: block;
+    font-size: 0.9em;
+    padding: 1.0em 0;
+    width: 100%;
+    font-weight: bold;
+}
+.container{
+    background-image: url(/img/main_bg_pc.jpg);
+    background-size: cover;
+    height: 390px;
+}
+
+.main{
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+#main_visual{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 440px;
+    height:390px;
+}
+
+#top_main_content{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    height: 100%;
+}
+#top_main_content h1{
+    font-size: 5em;
+    font-weight: 200;
+    color: white;
+}
+
+#top_main_content p{
+    color: white;
+    font-size: 2em;
+}
+#android{
+    display:inline-block;
+    overflow:hidden;
+ background:url(/img/google-play-badge.png);
+    width:165px;
+    height:55px;
+    background-size: cover;
+}
+
+

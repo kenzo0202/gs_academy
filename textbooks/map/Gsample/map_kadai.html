@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>経路検索</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXC09hxtZvw_EYkOQ8QG_rX1B5bYPGf3w&callback=initialize&sensor=false" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
+    </script>
+    <style>
+        <style>
+            #map_canvas {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1em;
+                height: 550px;
+            }
+    </style>
+    
+    <script>
+            var map,start,end;
+            var directionsDisplay;
+            var directionsService;
+            start = "東京駅";
+            end = "東京スカイツリー"
+            
+            $(document).ready(function(){
+                $("#route_submit").on("click",function(e){
+                e.preventDefault();
+                var start = $("#entrance").val();
+                var end = $("#depature").val();
+                
+                
+                //ルート説明をクリア
+                $("#direction_Panel").text("");
+                
+                google.maps.event.addDomListener(window,"load",initialize(start,end));
+                google.maps.event.addDomListener(window,"load",calcRoute(start,end));
+            });
+        });
+            
+
+        
+        function initialize(start,end){
+            var geocoder = new google.maps.Geocoder();
+            
+            geocoder.geocode({
+                //起点のキーワード
+                "address" :start
+            },function(result, status){
+                if(status == google.maps.GeocoderStatus.OK){
+                    var latlng = result[0].geometry.location;
+                    var myOptions = {
+                        zoom: 14,
+                        center: latlng,
+                        scrollwheel: false,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    };
+                    
+                    
+                    map = new google.maps.Map($("#map_canvas"),myOptions);
+                    directionsDisplay = new google.maps.DirectionRenderer();
+                    directionsDisplay.setMap(map);
+                    directionsDisplay.setPanel($("#direction_Panel"));
+                    function calcRoute(start,end){
+
+                        var request = {
+                            origin: start,
+                            destination: end,
+                            travelMode: google.maps.TravelMode.DRIVING,
+                            avoidHighways: true,
+                        };
+
+
+                        directionsService = new google.maps.DirectionsService()
+
+                        directionsService.route(request,function(response,status){
+                            if(status == google.maps.DirectionsStatus.OK){
+                                directionsDisplay.setDirections(response);
+                            }else{
+                                alert("ルートが見つかりませんでした")
+                            }
+                        });
+                    }
+                    
+                    $("#start").text(start);
+                    $("#end").text(end);   
+                }else{
+                    alert("取得できませんでした")
+                };
+            });
+        };
+        google.maps.event.addDomListener(window, 'load', function() {
+            initialize(begin, end);
+            calcRoute(begin, end);
+        });
+        
+
+        
+    </script>
+</head>
+<body>
+   <input type="text" id="entrance">
+   <input type="text" id="depature">
+   <input type="submit" id="route_submit">
+   
+   <div id="start"></div>
+   <div id="end"></div>
+   <div id="map_canvas">
+   </div>
+   <div id="direction_Panel">
+   </div>
+   
+</body>
+</html>
