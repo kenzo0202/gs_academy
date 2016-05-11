@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LINE風アプリ</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.mlkcca.com/v2.0.0/milkcocoa.js"></script>
+    <link rel="stylesheet" href="./common.css">
+    <script>
+        window.onload = function () {
+            //データストアを作成（データを送受信するために必要）
+            var milkcocoa = new MilkCocoa('noteio28eeql.mlkcca.com'); //※ID自分のに変えてね！！
+
+            //データベースストア：オブジェクト生成
+            var chatDataStore = milkcocoa.dataStore("chat"); //アプリ名指定
+
+            var getAllData = function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#board").append("<div id='comment'><ul><li>" + "名前:" + data[i].value.name + "</li><li>" + data[i].value.message + "</li>" + "</ul>" + "<p>時刻" + data[i].value.hour + ":" + data[i].value.minute + "</p></div>");
+                };
+            };
+            var history = milkcocoa.dataStore("chat").history();
+
+            $("#button").on("click", function () {
+                var text = $("#msg").val();
+                var time = new Date();
+                var hour = time.getHours();
+                var minute = time.getMinutes();
+                var name = $("#name").val();
+                //milkcocoa:send送信
+                chatDataStore.push({
+                    message: text
+                    , hour: hour
+                    , minute: minute
+                    , name: name
+                }, function (e) {
+                    $("#msg").val(""); //送信後、空っぽにする
+                    $("#name").val(""); //送信後、空っぽにする
+                });
+            });
+            history.size(5);
+            history.limit(200);
+            history.on("data", getAllData);
+            history.on('end', function () {
+                console.log('end');
+            });
+            history.on('error', function (err) {
+                console.error(err);
+            });
+            history.run();
+
+            chatDataStore.on("push", function (data) {
+                $("#board").prepend("<div id='comment'><ul><li>" + "名前:" + data.value.name + "</li><li>" + data.value.message + "</li>" + "</ul>" + "<p>時刻" + data.value.hour + ":" + data.value.minute + "</p></div>");
+            });
+
+
+        };
+    </script>
+</head>
+
+<body>
+   <div class="container">
+    <div id="board"></div>
+    </div>
+    <div id="footer">
+        <div id="message_area">
+            <div id="messenger">
+                名前
+                <input type="text" id="name">
+                <textarea id="msg"></textarea>
+            </div>
+            <button id="button">メッセージ送信</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

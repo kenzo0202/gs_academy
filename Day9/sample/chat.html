@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>simple chat!(send)</title>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.mlkcca.com/v2.0.0/milkcocoa.js"></script>
+<script>
+//全て読み込んでから処理
+$(function(){
+
+    //データストアを作成（データを送受信するために必要）
+    var milkcocoa = new MilkCocoa('noteio28eeql.mlkcca.com'); //※ID自分のに変えてね！！
+
+    //データベースストア：オブジェクト生成
+    var chatDataStore = milkcocoa.dataStore("chat"); //アプリ名指定
+
+    //送信処理（ボタンをクリック）
+    $("#button").on("click",function(){
+        var text = $("#msg").val(); //入力文字を取得
+        var name = $("#name").val();
+        var age = $("#age").val();
+        //milkcocoa:send送信
+        chatDataStore.send({message:text,name:name,age: age},function(e){
+            $("#msg").val(""); //送信後、空っぽにする
+        });
+    });
+
+    //受信処理（send受信）
+    chatDataStore.on("send",function(data){
+        console.dir(data);
+        $("#board").append("<li>"+data.value.name+data.value.message+data.value.age+"</li>");
+    });
+
+});
+</script>
+</head>
+<body>
+名前<input type="text" id="name"><br>
+年齢<input type="text" id="age"><br>
+<textarea id="msg" cols="30" rows="4"></textarea>
+<button id="button">メッセージ送信</button>
+<ul id="board"></ul>
+</body>
+</html>

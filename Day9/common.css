@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#board{
+    display: block;
+    background-color: green;
+    width: 780px;
+    margin: 0 auto;
+    position: relative;
+}
+#comment{
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+    font-size: 10px;
+}
+p{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+ul {
+    position: relative;
+    background: #fff;
+    border: 1px solid #777;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    clear: both;
+    width: 200px;
+    float: left;
+    list-style: none;
+    background-color: #e7e7eb;
+}
+ul:after,
+ul:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+ul:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 7px;
+    margin-top: -7px;
+}
+ul:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-right-color: #000;
+    border-width: 8px;
+    margin-top: -8px;
+}
+#footer{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    background-color: rgba(169,169,169,0.5);
+}
+#message_area{
+    margin:0 auto;
+    width: 780px;
+    position: relative;
+    height: 100px
+}
+#messenger{
+    position: absolute;
+    bottom:0;
+    width: 80%;
+}
+textarea{
+    width: 100%;
+    height: 50px;
+}
+
+#button{
+    width: 15%;
+    height: 50px;
+    background-color:aquamarine;
+    border-radius:10px;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    margin-bottom: 10px;
+}
+.container{
+    position: relative;
+}
