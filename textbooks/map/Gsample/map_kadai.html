@@ -1,114 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>経路検索</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXC09hxtZvw_EYkOQ8QG_rX1B5bYPGf3w&callback=initialize&sensor=false" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxCmSV08KiMtRFYmWheXborHFlsEbIGLw&callback=initialize" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
     </script>
     <style>
-        <style>
-            #map_canvas {
-                margin: 0;
-                padding: 0;
-                margin-bottom: 1em;
-                height: 550px;
-            }
+        body{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #map_canvas {
+            margin-bottom: 1em;
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+        }
+        #direction_Panel{
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        
+        
     </style>
-    
+
     <script>
-            var map,start,end;
+            var map, start, end;
             var directionsDisplay;
             var directionsService;
             start = "東京駅";
-            end = "東京スカイツリー"
-            
-            $(document).ready(function(){
-                $("#route_submit").on("click",function(e){
-                e.preventDefault();
-                var start = $("#entrance").val();
-                var end = $("#depature").val();
-                
-                
-                //ルート説明をクリア
-                $("#direction_Panel").text("");
-                
-                google.maps.event.addDomListener(window,"load",initialize(start,end));
-                google.maps.event.addDomListener(window,"load",calcRoute(start,end));
-            });
-        });
-            
-
-        
-        function initialize(start,end){
+            end = "東京スカイツリー";
+        function initialize() {
             var geocoder = new google.maps.Geocoder();
-            
+
             geocoder.geocode({
                 //起点のキーワード
-                "address" :start
-            },function(result, status){
-                if(status == google.maps.GeocoderStatus.OK){
+                "address": start
+            }, function (result, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
                     var latlng = result[0].geometry.location;
                     var myOptions = {
-                        zoom: 14,
-                        center: latlng,
-                        scrollwheel: false,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    };
-                    
-                    
-                    map = new google.maps.Map($("#map_canvas"),myOptions);
-                    directionsDisplay = new google.maps.DirectionRenderer();
+                        zoom: 14
+                        , center: latlng
+                        , scrollwheel: false
+                        , mapTypeId: google.maps.MapTypeId.ROADMAP
+                    , };
+
+                    directionsService = new google.maps.DirectionsService()
+
+
+                    map = new google.maps.Map($("#map_canvas")[0], myOptions);
+                    directionsDisplay = new google.maps.DirectionsRenderer();
                     directionsDisplay.setMap(map);
-                    directionsDisplay.setPanel($("#direction_Panel"));
-                    function calcRoute(start,end){
+                    directionsDisplay.setPanel(document.getElementById("direction_Panel"));
+                    calcRoute();
 
-                        var request = {
-                            origin: start,
-                            destination: end,
-                            travelMode: google.maps.TravelMode.DRIVING,
-                            avoidHighways: true,
-                        };
-
-
-                        directionsService = new google.maps.DirectionsService()
-
-                        directionsService.route(request,function(response,status){
-                            if(status == google.maps.DirectionsStatus.OK){
-                                directionsDisplay.setDirections(response);
-                            }else{
-                                alert("ルートが見つかりませんでした")
-                            }
-                        });
-                    }
-                    
                     $("#start").text(start);
-                    $("#end").text(end);   
-                }else{
+                    $("#end").text(end);
+                } else {
                     alert("取得できませんでした")
                 };
             });
-        };
-        google.maps.event.addDomListener(window, 'load', function() {
-            initialize(begin, end);
-            calcRoute(begin, end);
-        });
-        
 
-        
+            function calcRoute() {
+
+                var request = {
+                    origin: start,
+                    destination: end, 
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    avoidHighways: true,
+                };
+
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    } else {
+                        alert("ルートが見つかりませんでした")
+                    }
+                });
+            };
+            
+            $("#route_submit").on("click", function (e) {
+                e.preventDefault();
+                start = $("#entrance").val();
+                end = $("#depature").val();
+                $("#start").text("");
+                $("#end").text("");
+                $("#start").text(start);
+                $("#end").text(end);
+
+                //ルート説明をクリア
+                $("#direction_Panel").text("");
+                calcRoute();
+            });
+        }
     </script>
 </head>
+
 <body>
-   <input type="text" id="entrance">
-   <input type="text" id="depature">
-   <input type="submit" id="route_submit">
-   
-   <div id="start"></div>
-   <div id="end"></div>
-   <div id="map_canvas">
-   </div>
-   <div id="direction_Panel">
-   </div>
-   
+    出発地点<input type="text" id="entrance">
+    到着地点<input type="text" id="depature">
+    <input type="submit" id="route_submit" value="出発！">
+
+    <div id="start"></div>
+    <div id="end"></div>
+    <div id="map_canvas">
+    </div>
+    <div id="direction_Panel">
+    </div>
+
 </body>
+
 </html>
