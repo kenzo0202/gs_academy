@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>グリッドシステム解説</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <header style="background-color: #777;" class="container-fluid">ヘッダー</header>
+        <!-- Bootstrapのグリッドシステム外枠固定：class="container"で開始 -->
+        <main class="container-fluid">
+            <!-- Bootstrapのグリッドシステム行：class="row"であることを示す -->
+            <section class="row">
+                <!-- グリッドシステムとは：合計12分割 [使用可能 prefix: lg,md,sm,xs] -->
+                <div class="col-lg-6" style="background-color:blue;">青</div>
+                <div class="col-lg-2" style="background-color:red;">赤</div>
+                <div class="col-lg-4" style="background-color:yellow;">黄色</div>
+            </section>
+        </main>
+
+        <footer style="background-color: #777;" class="container">フッター</footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
